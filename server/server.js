@@ -22,11 +22,13 @@ db.then(() => console.log('Connected to MongoDB')).catch(err => console.log(err)
 const httpServer = http.createServer(app);
 
 // Routes
+const homeRoute = require('../routes/home');
 const authRoute = require('../routes/auth');
 const profileRoute = require('../routes/profile');
 const dashboardRoute = require('../routes/dashboard');
 const instructorsRoute = require('../routes/instructors');
 const academyRoute = require('../routes/academy');
+const errorRoute = require('../routes/error');
 
 app.use(session({
   secret: '228secret1337',
@@ -48,16 +50,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware Routes
+app.use('/', homeRoute);
 app.use('/auth', authRoute);
 app.use('/profile', profileRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/instructors', instructorsRoute);
 app.use('/academy', academyRoute);
-
-app.get('/', (req, res) => {
-    res.render('home', {
-        user: req.user
-    });
-});
+app.use('*', errorRoute);
 
 httpServer.listen(8080);
