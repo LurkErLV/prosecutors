@@ -85,14 +85,16 @@ async function validatePostUsers(req) {
 
         if (target) {
             if (req.body.accessLevel) {
-                if (req.user.level > req.body.accessLevel) {
-                    createAndSaveLog(req.user.discordId, req.body.id, `Поменял уровень доступа с ${target.level} до ${req.body.accessLevel}`);
-                    target.updateOne({ level: req.body.accessLevel }, (err) => {
-                        if (err) {
-                            console.log(err);
-                        }
-                    });
-                }
+                if (target.level < req.user.level) {
+                    if (req.user.level > req.body.accessLevel) {
+                        createAndSaveLog(req.user.discordId, req.body.id, `Поменял уровень доступа с ${target.level} до ${req.body.accessLevel}`);
+                        target.updateOne({ level: req.body.accessLevel }, (err) => {
+                            if (err) {
+                                console.log(err);
+                            }
+                        });
+                    }
+            }
             }
 
             if (req.body.rank) {
