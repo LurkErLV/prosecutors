@@ -1,0 +1,71 @@
+<%- include('partials/header') -%>
+    <div class="container box has-background-light">
+        <div class="b-table">
+            <div class="table-wrapper has-mobile-cards">
+                <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+                    <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Discord ID</th>
+                        <th>Discord</th>
+                        <th>Nickname</th>
+                        <th>Access Level</th>
+                        <th>Rank</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% users.forEach((el, i) => { %>
+                    <form action="/dashboard/users" method="POST">
+                    <tr>
+                        <td data-label="Id">
+                            <%= i + 1 %>
+                        </td>
+                        <td><input class="input" type="text" name="id" readonly="readonly" value="<%= el.discordId %>"></td>
+                        <td><input class="input" type="text" readonly="readonly" value="<%= el.username %>#<%= el.discriminator %>"></td>
+                        <td><input class="input" type="text" readonly="readonly" value="<%= el.nickname %>"></td>
+                        <td>
+                                    <div class="select">
+                                        <select <% if (user.discordId === el.discordId) {%> disabled <% } %> name="accessLevel">
+                                            <option selected disabled><%= el.level %></option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                        </td>
+                        <td>
+                                    <div class="select">
+                                        <select <% if (user.discordId === el.discordId) {%> disabled <% } %> name="rank">
+                                            <option selected disabled><%= el.rank %></option>
+                                            <option value="1">Гость</option>
+                                            <option value="2">Кадет ПА</option>
+                                            <option value="3">Офицер</option>
+                                            <option value="4">Сержант</option>
+                                            <option value="5">Лейтенант</option>
+                                            <option value="6">Капитан</option>
+                                            <option value="7">Коммандер</option>
+                                            <option value="8">Зам. Шерифа</option>
+                                        </select>
+                                    </div>
+                        </td>
+                        <td class="is-actions-cell">
+                            <div class="buttons is-right">
+                                <button <% if (user.discordId === el.discordId) {%> disabled <% } %> class="button is-small is-primary" type="submit">
+                                    <span class="icon"><i class="fa fa-save"></i></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </form>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<style>
+</style>
+<%- include('partials/footer') -%>
