@@ -1,0 +1,77 @@
+<%- include('partials/header') -%>
+<link rel="stylesheet" href="/stylesheets/order.css" />
+<div id="order" class="container is-widescreen">
+    <div class="level">
+        <figure class="image level-left">
+            <img src="/images/logo-circle.png" alt="Logo" width="100" height="100" />
+        </figure>
+        <div class="level-right">
+            <h1 class="subtitle">Министерство Юстиции США</h1>
+        </div>
+    </div>
+    <hr>
+    <h1 class="title has-text-centered underline">В РОЗЫСКЕ</h1>
+    <hr>
+    <h1 сlass="title"><b>УВЕДОМЛЕНИЕ АГЕНСТВУ, ПРОИЗВОДЯЩЕМУ АРЕСТ: </b>Перед арестом подтвердите ордер в Министерстве Юстиции.</h1>
+    <hr>
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <article class="tile is-child notification">
+                <p class="subtitle"><b>ИМЯ И ФАМИЛИЯ: </b>John Rich</p>
+                <hr>
+                <p class="title has-text-centered">Описание:</p>
+                <p class="subtitle">
+                    <p><b>Пол: </b>Мужской</p>
+                    <p><b>Раса: </b>Белый</p>
+                    <p><b>Место рождения: </b>Los-Santos</p>
+                    <p><b>Дата рождения: </b>25.07.1987</p>
+                    <p><b>Рост: </b>6`1 футов</p>
+                    <p><b>Вес: </b>180 фунтов</p>
+                    <p><b>Глаза: </b>Карие</p>
+                    <p><b>Волосы: </b>Чёрные</p>
+                </p>
+              </article>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification">
+              <p class="subtitle">
+                <p><b>Разыскивается за: </b>1.4 и 11.5 "Уголовного Кодекса"</p>
+                <p><b>Орден выдан: </b>Генеральным Прокурором: John Rich</p>
+                <p><b>Номер ордера: </b><%= order.orderId %></p>
+                <p><b>Дата выдачи ордера: </b>27.09.2022</p>
+                <p><b>Действителен до: </b>01.10.20222</p>
+            </p>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification">
+            <div class="content">
+                <img src="/images/order-img.png" alt="">
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification">
+          <p class="title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ:</p>
+          <p class="subtitle">Бывший сотрудник B.C.S.D, уволился, предположительно перешёл в преступную организацию.</p>
+          <div class="content">
+            <p class="danger">Считать, как особо опасного.</p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification">
+          <div class="content">
+            <p><b>Если вы арестовали данного челоека или вам известно, его местонахождение, сообщите об этом в Министерстве Юстиции, если ответа не поступит, свяжитесь с федеральным расследовательским бюро. Код доступа NLETS.</b></p>
+          </div>
+        </article>
+      </div>
+    </div>
+    </div>
+</div>
+<%- include('partials/footer') -%>

@@ -1,0 +1,15 @@
+#order {
+    background-color: #f0efee;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.image img {
+    width: 100px !important;
+    height: auto !important;
+}
+
+.danger {
+    color: red;
+    font-weight: 700;
+}

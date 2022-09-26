@@ -27,6 +27,7 @@ const authRoute = require('../routes/auth');
 const profileRoute = require('../routes/profile');
 const dashboardRoute = require('../routes/dashboard');
 const prosecutorsRoute = require('../routes/prosecutors');
+const ordersRoute = require('../routes/orders');
 const errorRoute = require('../routes/error');
 
 app.use(session({
@@ -54,6 +55,7 @@ app.use('/auth', authRoute);
 app.use('/profile', profileRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/prosecutors', prosecutorsRoute)
+app.use('/orders', ordersRoute);
 app.use('*', errorRoute);
 
 httpServer.listen(8080);
