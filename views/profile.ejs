@@ -9,17 +9,17 @@
                             <img class="is-rounded" src="https://cdn.discordapp.com/avatars/<%= user.discordId %>/<%= user.avatar %>">
                         </figure>
                     </div>
-                    <h1 class="title is-3"><%= user.username %>#<%= user.discriminator %></h1>
-                    <h2 class="subtitle is-4"><%= user.position %></h2>
+                    <h1 class="title is-3" style="font-weight: 600;"><%= user.nickname %></h1>
+                    <h2 class="subtitle is-4"><%= user.rank %></h2>
+                    <div id="rank">
+                        <h2 class="subtitle is-5"><b>Округ:</b> <%= user.position %></h2>
+                    </div>
                     <div id="accessLevel">
                         <h2 class="subtitle is-5"><b>Уровень доступа:</b> <%= user.level %></h2>
                     </div>
-                    <div id="rank">
-                        <h2 class="subtitle is-5"><b>Должность:</b> <%= user.rank %></h2>
-                    </div>
                 </div>
                 <div class="column right">
-                    <h2 class="subtitle is-5"><b>Никнейм:</b> <%= user.nickname %></h2>
+                    <h2 class="subtitle is-5"><b>Discord:</b> <%= user.username %>#<%= user.discriminator %></h2>
                     <h2 class="subtitle is-5"><b>Discord ID:</b> <%= user.discordId %></h2>
                     <h2 class="subtitle is-5"><b>Телефон:</b> <%= user.phone %></h2>
                     <a class="button is-light" href="https://discord.gg/vXe6fTTVPh" target="_blank">Discord GOV</a>
