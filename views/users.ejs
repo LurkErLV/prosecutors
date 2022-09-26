@@ -9,8 +9,8 @@
                         <th>Discord ID</th>
                         <th>Discord</th>
                         <th>Nickname</th>
-                        <th>Access Level</th>
-                        <th>Rank</th>
+                        <th>Уровень Доступа</th>
+                        <th>Должность</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -40,14 +40,11 @@
                                     <div class="select">
                                         <select <% if (user.discordId === el.discordId) {%> disabled <% } %> name="rank">
                                             <option selected disabled><%= el.rank %></option>
-                                            <option value="1">Гость</option>
-                                            <option value="2">Кадет ПА</option>
-                                            <option value="3">Офицер</option>
-                                            <option value="4">Сержант</option>
-                                            <option value="5">Лейтенант</option>
-                                            <option value="6">Капитан</option>
-                                            <option value="7">Коммандер</option>
-                                            <option value="8">Зам. Шерифа</option>
+                                            <option value="1">Гражданский</option>
+                                            <option value="2">Дежурный Прокурор</option>
+                                            <option value="3">Окружной Прокурор</option>
+                                            <option value="4">Зам. Генерального Прокурора</option>
+                                            <option value="5">Генеральный Прокурор</option>
                                         </select>
                                     </div>
                         </td>

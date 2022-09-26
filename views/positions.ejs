@@ -9,7 +9,7 @@
                     <th>Discord ID</th>
                     <th>Discord</th>
                     <th>Nickname</th>
-                    <th>Position</th>
+                    <th>Округ</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -28,11 +28,9 @@
                                     <select <% if (user.discordId === el.discordId) {%> disabled <% } %> name="position">
                                         <option selected disabled><%= el.position %></option>
                                         <option value="1">None</option>
-                                        <option value="2">Instructor SA</option>
-                                        <option value="3">High Instructor SA</option>
-                                        <option value="4">D.Head SA</option>
-                                        <option value="5">Head SA</option>
-                                        <option value="6">Curator SA</option>
+                                        <option value="2">Округ Los-Santos</option>
+                                        <option value="3">Округ Blaine County</option>
+                                        <option value="4">Федеральный</option>
                                     </select>
                                 </div>
                             </td>

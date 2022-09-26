@@ -13,28 +13,22 @@ function isAuthorized(req, res, next) {
 }
 
 const ranks = {
-    1: "Гость",
-    2: "Кадет ПА",
-    3: "Офицер",
-    4: "Сержант",
-    5: "Лейтенант",
-    6: "Капитан",
-    7: "Коммандер",
-    8: "Зам. Шерифа",
-    9: "Шериф"
+    1: "Гражданский",
+    2: "Дежурный Прокурор",
+    3: "Окружной Прокурор",
+    4: "Зам. Генерального Прокурора",
+    5: "Генеральный Прокурор"
 };
 
 const positions = {
     1: "None",
-    2: "Instructor SA",
-    3: "High Instructor SA",
-    4: "D.Head SA",
-    5: "Head SA",
-    6: "Curator SA",
+    2: "Округ Los-Santos",
+    3: "Округ Blaine County",
+    4: "Федеральный"
 };
 
 function checkRank(req, user) {
-    if (req.body.rank > 8 && req.body.rank < 1) {
+    if (req.body.rank > 5 && req.body.rank < 1) {
         return false;
     }
 
@@ -42,30 +36,12 @@ function checkRank(req, user) {
 
     if (rank === 1) return false;
 
-    const userRank = Object.keys(ranks).find(key => ranks[key] === user.rank);
+    const targetRank = Object.keys(ranks).find(key => ranks[key] === user.rank);
 
     if (rank <= req.body.rank) {
         return false;
     } else {
-        if (rank > userRank) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
-
-function checkPosition(req, user) {
-    if (req.body.position > 6 && req.body.position < 1) {
-        return false;
-    }
-
-    const position = Object.keys(positions).find(key => positions[key] === req.user.position);
-    const userPosition = Object.keys(positions).find(key => positions[key] === user.position);
-    if (position <= req.body.position) {
-        return false;
-    } else {
-        if (position > userPosition) {
+        if (rank > targetRank) {
             return true;
         } else {
             return false;
@@ -123,7 +99,7 @@ async function validatePostPositions(req) {
 
         if (target) {
             if (req.body.position) {
-                if (checkPosition(req, target)) {
+                if (req.user.level >= 4) {
                     createAndSaveLog(req.user.discordId, req.body.id, `Поменял должность с ${target.position} до ${positions[req.body.position]}`);
                     target.updateOne({ position: positions[req.body.position] }, (err) => {
                         if (err) {
