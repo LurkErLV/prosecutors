@@ -26,8 +26,7 @@ const homeRoute = require('../routes/home');
 const authRoute = require('../routes/auth');
 const profileRoute = require('../routes/profile');
 const dashboardRoute = require('../routes/dashboard');
-const instructorsRoute = require('../routes/instructors');
-const academyRoute = require('../routes/academy');
+const prosecutorsRoute = require('../routes/prosecutors');
 const errorRoute = require('../routes/error');
 
 app.use(session({
@@ -54,8 +53,7 @@ app.use('/', homeRoute);
 app.use('/auth', authRoute);
 app.use('/profile', profileRoute);
 app.use('/dashboard', dashboardRoute);
-app.use('/instructors', instructorsRoute);
-app.use('/academy', academyRoute);
+app.use('/prosecutors', prosecutorsRoute)
 app.use('*', errorRoute);
 
 httpServer.listen(8080);

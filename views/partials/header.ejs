@@ -1,70 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BCSD</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Prosecutor's Office</title>
     <!-- Bulma -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <!-- Responsive Table -->
-    <link rel="stylesheet" href="stylesheets/responsive-table.css">
+    <link rel="stylesheet" href="stylesheets/responsive-table.css" />
     <!-- Font Awesome -->
     <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="/images/bcsd.png" width="112" height="28">
+          <img src="/images/logo-circle.png" width="40px" height="auto" />
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-    </div>
+      </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a href="/" class="navbar-item">
-                Home
-            </a>
-            <a href="/instructors" class="navbar-item">
-                SA
-            </a>
-            <a href="/academy" class="navbar-item">
-                Academy
-            </a>
+          <a href="/" class="navbar-item">Главная</a>
+          <a href="/prosecutors" class="navbar-item">Состав прокуратуры</a>
         </div>
 
         <div class="navbar-end">
-            <% if (user) {%>
-            <% if (user.level >= 3) { %>
-                    <a href="/dashboard" class="navbar-item">Dashboard</a>
-                    <% } %>
-            <a href="/profile" class="navbar-item">Profile</a>
-            <% } %>
-            <div class="navbar-item">
-                <div class="buttons">
-                    <% if (user) {%>
-                    <a href="/auth/logout" class="button is-danger">
-                        Log out
-                    </a>
-                    <% } else { %>
-                    <a href="/auth" class="button is-success">
-                        Log in
-                    </a>
-                    <% } %>
-                </div>
+          <% if (user) {%> <% if (user.level >= 3) { %>
+          <a href="/dashboard" class="navbar-item">Панель Управления</a>
+          <% } %>
+          <a href="/profile" class="navbar-item">Профиль</a>
+          <% } %>
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if (user) {%>
+              <a href="/auth/logout" class="button is-danger"> Log out </a>
+              <% } else { %>
+              <a href="/auth" class="button is-success"> Log in </a>
+              <% } %>
             </div>
+          </div>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
+  </body>
+</html>
