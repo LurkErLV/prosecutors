@@ -1,4 +1,55 @@
-<%- include('partials/header')  -%>
-<h1 class="has-text-centered title">ОРДЕРЫ</h1>
-<a href="/orders/1337">John Rich</a>
-<%- include('partials/footer')  -%>
+<%- include('partials/header') -%>
+<link rel="stylesheet" href="/stylesheets/order.css" />
+<div class="container">
+  <article class="panel is-dark">
+    <div class="panel-heading columns">
+      <p class="column">Активные ордеры</p>
+      <% if (user) { %>
+        <% if (user.level >= 4) {%>  
+      <a class="has-text-right column" href="/orders/createOrder" style="color: white;">Создать</a>
+      <% }} %> 
+    </div>
+    <p class="panel-tabs">
+      <a class="tab is-active" onclick="openTab(event, 'Approved')">Активные</a>
+      <% if (user) {%> <% if (user.level >= 4) { %>
+      <a class="tab" onclick="openTab(event, 'Archive')">Архив</a>
+      <a class="tab" onclick="openTab(event, 'Moderation')">Модерация</a>
+      <% } %><% } %>
+    </p>
+    <div id="Approved" class="content-tab">
+      <% approved.forEach(el => { %>
+      <a href="/orders/<%= el.orderId %>" class="panel-block is-active">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Ордер на <%= el.name %> <%= el.surname %>
+      </a>
+      <% }) %>
+    </div>
+    <% if (user) {%> <% if (user.level >= 4) { %>
+      <div id="Archive" class="content-tab" style="display: none;">
+        <% archive.forEach(el => { %>
+            <a href="/orders/<%= el.orderId %>" class="panel-block is-active">
+              <span class="panel-icon">
+                <i class="fas fa-book" aria-hidden="true"></i>
+              </span>
+              Ордер на <%= el.name %> <%= el.surname %>
+            </a>
+            <% }) %>
+    </div>
+        <div id="Moderation" class="content-tab" style="display: none;">
+            <% moderation.forEach(el => { %>
+                <a href="/orders/<%= el.orderId %>" class="panel-block is-active">
+                  <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                  </span>
+                  Ордер на <%= el.name %> <%= el.surname %>
+                </a>
+                <% }) %>
+        </div>
+        <% } %><% } %>
+  </article>
+</div>
+
+<script src="/scripts/tabs.js"></script>
+<%- include('partials/footer') -%>

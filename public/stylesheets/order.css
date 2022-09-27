@@ -13,3 +13,13 @@
     color: red;
     font-weight: 700;
 }
+
+.input-order {
+    border: 3px gray solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.input-order:last-child {
+    margin-left: 5px;
+}

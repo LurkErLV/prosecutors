@@ -1,0 +1,105 @@
+<%- include('partials/header')  -%>
+<div class="container box p-6 has-background-light">
+    <link rel="stylesheet" href="/stylesheets/order.css" />
+    <form action="/orders/createOrder" method="POST">
+    <div id="order" class="container is-widescreen">
+        <div class="level">
+            <figure class="image level-left">
+                <img src="/images/logo-circle.png" alt="Logo" width="100" height="100" />
+            </figure>
+            <div class="level-right">
+                <h1 class="subtitle">Министерство Юстиции США</h1>
+            </div>
+        </div>
+        <hr>
+        <h1 class="title has-text-centered underline">В РОЗЫСКЕ</h1>
+        <hr>
+        <h1 сlass="title"><b>УВЕДОМЛЕНИЕ АГЕНСТВУ, ПРОИЗВОДЯЩЕМУ АРЕСТ: </b>Перед арестом подтвердите ордер в Министерстве Юстиции.</h1>
+        <hr>
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+              <div class="tile">
+                <div class="tile is-parent is-vertical">
+                  <article class="tile is-child notification">
+                    <p class="subtitle"><b>ИМЯ И ФАМИЛИЯ: </b><input required class="input-order" type="text" placeholder="Имя" name="name"><input required class="input-order" type="text" placeholder="Фамилия" name="surname"></p>
+                    <hr>
+                    <p class="title has-text-centered">Описание:</p>
+                    <p class="subtitle">
+                        <p><b>Пол: </b><input required class="input-order" type="text" placeholder="Мужской/Женский" name="gender"></p>
+                        <p><b>Раса: </b><input required class="input-order" type="text" placeholder="Белый" name="race"></p>
+                        <p><b>Место рождения: </b><input required class="input-order" type="text" placeholder="Los-Santos" name="birthplace"></p>
+                        <p><b>Дата рождения: </b><input required class="input-order" type="date" name="birthdate"></p>
+                        <p><b>Рост: </b><input required class="input-order" type="text" placeholder="6'1 футов" name="height"></p>
+                        <p><b>Вес: </b><input required class="input-order" type="text" placeholder="180 фунтов" name="weight"></p>
+                        <p><b>Глаза: </b><input required class="input-order" type="text" placeholder="Карие" name="eyeColor"></p>
+                        <p><b>Волосы: </b><input required class="input-order" type="text" placeholder="Чёрные" name="hairColor"></p>
+                    </p>
+                  </article>
+                </div>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child notification">
+                  <p class="subtitle">
+                    <p><b>Разыскивается за: </b><input required class="input-order" type="text" placeholder="1.4, 11.5 и 11.1" name="wantedReason"> "Уголовного Кодекса"</p>
+                    <p><b>Орден выдан: </b><input required class="input-order" type="text" placeholder="Генеральным прокурором: John Rich" name="issuedBy"></p>
+                    <p><b>Номер ордера: </b><input required class="input-order" type="text" placeholder="164" name="orderId"></p>
+                    <p><b>Дата выдачи ордера: </b><input required class="input-order" type="date" name="issueDate"></p>
+                    <p><b>Действителен до: </b><input required class="input-order" type="date" name="validUntil"></p>
+                </p>
+                </article>
+              </div>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <div class="content">
+                    <label for="imgUrl">
+                        <b>Ссылка на фотографию:</b>
+                        <input required class="input-order" type="text" id="imgUrl" name="imgUrl">
+                    </label>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification">
+              <p class="title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ:</p>
+              <p class="subtitle"><textarea required class="input-order" type="textarea" name="additional"></textarea></p>
+              <div class="content">
+                <p class="danger">Считать, как особо опасного?</p>
+                <div>
+                    <label for="да">
+                        Да
+                        <input type="radio" name="isDanger" id="да" value="Да">
+                    </label>
+                    <br>
+                    <label for="нет">
+                        Нет
+                        <input type="radio" name="isDanger" id="нет" value="Нет">
+                    </label>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification">
+              <div class="content">
+                <p><b>Если вы арестовали данного челоека или вам известно, его местонахождение, сообщите об этом в Министерстве Юстиции, если ответа не поступит, свяжитесь с федеральным расследовательским бюро. Код доступа NLETS.</b></p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <br>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-success">
+                    Отправить
+                </button>
+            </div>
+            <div class="control">
+                <a class="button is-link is-light" href="/orders">Отмена</a>
+            </div>
+        </div>
+        </div>
+    </form>
+    </div>
+<%- include('partials/footer')  -%>

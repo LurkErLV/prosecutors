@@ -19,18 +19,18 @@
           <div class="tile">
             <div class="tile is-parent is-vertical">
               <article class="tile is-child notification">
-                <p class="subtitle"><b>ИМЯ И ФАМИЛИЯ: </b>John Rich</p>
+                <p class="subtitle"><b>ИМЯ И ФАМИЛИЯ: </b><%= order.name %> <%= order.surname %>  </p>
                 <hr>
                 <p class="title has-text-centered">Описание:</p>
                 <p class="subtitle">
-                    <p><b>Пол: </b>Мужской</p>
-                    <p><b>Раса: </b>Белый</p>
-                    <p><b>Место рождения: </b>Los-Santos</p>
-                    <p><b>Дата рождения: </b>25.07.1987</p>
-                    <p><b>Рост: </b>6`1 футов</p>
-                    <p><b>Вес: </b>180 фунтов</p>
-                    <p><b>Глаза: </b>Карие</p>
-                    <p><b>Волосы: </b>Чёрные</p>
+                    <p><b>Пол: </b><%= order.gender %></p>
+                    <p><b>Раса: </b><%= order.race %></p>
+                    <p><b>Место рождения: </b><%= order.birthplace %> </p>
+                    <p><b>Дата рождения: </b><%= order.birthdate %> </p>
+                    <p><b>Рост: </b><%= order.height %> </p>
+                    <p><b>Вес: </b><%= order.weight %> </p>
+                    <p><b>Глаза: </b><%= order.eyeColor %> </p>
+                    <p><b>Волосы: </b><%= order.hairColor %> </p>
                 </p>
               </article>
             </div>
@@ -38,11 +38,11 @@
           <div class="tile is-parent">
             <article class="tile is-child notification">
               <p class="subtitle">
-                <p><b>Разыскивается за: </b>1.4 и 11.5 "Уголовного Кодекса"</p>
-                <p><b>Орден выдан: </b>Генеральным Прокурором: John Rich</p>
+                <p><b>Разыскивается за: </b><%= order.wantedReason %>  "Уголовного Кодекса"</p>
+                <p><b>Орден выдан: </b><%= order.issuedBy %> </p>
                 <p><b>Номер ордера: </b><%= order.orderId %></p>
-                <p><b>Дата выдачи ордера: </b>27.09.2022</p>
-                <p><b>Действителен до: </b>01.10.20222</p>
+                <p><b>Дата выдачи ордера: </b><%= order.issueDate %> </p>
+                <p><b>Действителен до: </b><%= order.validUntil %> </p>
             </p>
             </article>
           </div>
@@ -50,7 +50,7 @@
         <div class="tile is-parent">
           <article class="tile is-child notification">
             <div class="content">
-                <img src="/images/order-img.png" alt="">
+                <img src="<%= order.imgUrl %>" alt="Order image">
             </div>
           </article>
         </div>
@@ -58,9 +58,11 @@
       <div class="tile is-parent">
         <article class="tile is-child notification">
           <p class="title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ:</p>
-          <p class="subtitle">Бывший сотрудник B.C.S.D, уволился, предположительно перешёл в преступную организацию.</p>
+          <p class="subtitle"><%= order.additional %></p>
           <div class="content">
+            <% if (order.isDanger === "Да") {%> 
             <p class="danger">Считать, как особо опасного.</p>
+            <% } %> 
           </div>
         </article>
       </div>
@@ -71,6 +73,24 @@
           </div>
         </article>
       </div>
+      <% if (user) { %>
+        <% if (user.level >= 4) { %>
+          <br>
+          <hr>
+      <form action="/orders/<%= order.orderId %>" method="POST">
+        <div class="select is-medium">
+          <select name="status">
+            <option selected disabled value="<%= order.status %>"><%= order.status %></option>
+            <option value="Модерация">Модерация</option>
+            <option value="Архив">Архив</option>
+            <option value="Активные">Активные</option>
+          </select>
+        </div>
+        <br>
+        <br>
+        <button class="button is-success" type="submit">Подтвердить</button>
+        </form>
+      <% } %> <% } %>  
     </div>
     </div>
 </div>
