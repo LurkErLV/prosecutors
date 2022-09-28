@@ -80,6 +80,16 @@ router.get('/:orderId', async (req, res) => {
                 user: req.user,
                 order: order
             });
+        } else if (order.status === "Удалить") {
+            order.remove((err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            res.render('order', {
+                user: req.user,
+                order: order
+            });
         } else {
         if (req.user) {
             if (req.user.level >= 4) {
