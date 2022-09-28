@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/createOrder', (req, res) => {
+router.get('/create', (req, res) => {
     if (req.user) {
         if (req.user.level >= 4) {
             res.render('createOrder', {
@@ -40,7 +40,7 @@ router.get('/createOrder', (req, res) => {
     });
 });
 
-router.post('/createOrder', bodyParser.urlencoded({ extended: true }), async (req, res) => {
+router.post('/create', bodyParser.urlencoded({ extended: true }), async (req, res) => {
     let result = null;
     try {
     result = new Order({
