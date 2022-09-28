@@ -1,0 +1,97 @@
+<%- include('partials/header') -%>
+    <link rel="stylesheet" href="/stylesheets/order.css">
+    <section class="blog-posts">
+        <div class="container">
+            <h1 class="has-text-centered title">Состав прокуратуры</h1>
+            <hr>
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="columns featured-post is-multiline">
+                        <div class="column is-12 post">
+                            <article class="columns featured">
+                                <div class="column is-7 post-img">
+                                    <form action="/prosecutors/edit" method="POST">
+                                    <input type="text" name="id" value="<%= federal._id %>" style="display: none;">
+                                    <b>Image url:</b>
+                                    <input class="input-order" type="text" name="imgUrl" value="<%= federal.imgUrl %>">
+                                </div>
+                                <div class="column is-5 featured-content va">
+                                    <div>
+                                        <h3 class="heading post-category">Состав прокуратуры</h3>
+                                        <h1 class="title post-title">Генеральный Прокурор</h1>
+                                        <p class="post-excerpt">Генеральным Прокурором штата является <input name="name"
+                                                type="text" value="<%= federal.name %>"> <input type="text"
+                                                name="surname" value="<%= federal.surname %>">. <br>
+                                            <hr>
+                                            <textarea class="input-order" name="info"
+                                                style="width: 100%; min-height: 150px"><%= federal.info %></textarea>
+                                        </p>
+                                        <button class="button" type="submit">Сохранить</button>
+                                        <br>
+                                    </div>
+                                </form>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <hr>
+                    <h1 class="has-text-centered title">Округ Los-Santos</h1>
+                    <div class="columns is-multiline">
+                        <% ls.forEach((el, i)=> { %>
+                            <div class="column post is-4">
+                                <form action="/prosecutors/edit" method="POST">
+                                    <input type="text" name="id" value="<%= el._id %>" style="display: none;">
+                                    <article class="columns is-multiline">
+                                        <div class="column is-12 post-img">
+                                            <b>Image url:</b>
+                                            <input class="input-order" type="text" name="imgUrl" value="<%= el.imgUrl %>">
+                                        </div>
+                                        <div class="column is-12 featured-content ">
+                                            <h3 class="heading post-category">Округ Los-Santos</h3>
+                                            <h1 class="title post-title"><input class="input-order" name="name" type="text"
+                                                    value="<%= el.name %>"> <input class="input-order" type="text" name="surname"
+                                                    value="<%= el.surname %>"></h1>
+                                            <p class="post-excerpt"><textarea class="input-order" name="info"
+                                                    style="width: 100%; min-height: 150px"><%= el.info %></textarea></p>
+                                            <br>
+                                        </div>
+                                        <button class="button" type="submit">Сохранить</button>
+                                    </article>
+                                </form>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <hr>
+                    <h1 class="has-text-centered title">Округ Blaine County</h1>
+                    <div class="columns is-multiline">
+                        <% bc.forEach((el, i)=> { %>
+                            <input type="text" name="id" value="<%= el._id %>" style="display: none;">
+                            <div class="column post is-4">
+                                <form action="/prosecutors/edit" method="POST">
+                                    <input type="text" name="id" value="<%= el._id %>" style="display: none;">
+                                    <article class="columns is-multiline">
+                                        <div class="column is-12 post-img">
+                                            <b>Image url:</b>
+                                            <input class="input-order" type="text" name="imgUrl" value="<%= el.imgUrl %>">
+                                        </div>
+                                        <div class="column is-12 featured-content ">
+                                            <h3 class="heading post-category">Округ Los-Santos</h3>
+                                            <h1 class="title post-title"><input class="input-order" name="name" type="text"
+                                                    value="<%= el.name %>"> <input class="input-order" type="text" name="surname"
+                                                    value="<%= el.surname %>"></h1>
+                                            <p class="post-excerpt"><textarea class="input-order" name="info"
+                                                    style="width: 100%; min-height: 150px"><%= el.info %></textarea></p>
+                                            <br>
+                                        </div>
+                                        <button class="button" type="submit">Сохранить</button>
+                                    </article>
+                                </form>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+            </article>
+        </div>
+    </section>
+    <%- include('partials/footer') -%>
