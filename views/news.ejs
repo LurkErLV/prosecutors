@@ -1,11 +1,12 @@
 <%- include('partials/header') -%>
     <section class="blog-posts">
         <div class="container">
-            <h1 class="title has-text-centered">Новости</h1>
-            <% if (user) { %>
-              <% if (user.level >= 4) { %>  
-            <a class="button is-dark" href="/news/create">Создать</a>  
-            <% }} %>           
+          <h1 class="title has-text-centered">Новости</h1>
+          <% if (user) { %>
+            <% if (user.level >= 4) { %>  
+          <a class="button is-dark" href="/news/create">Создать</a>  
+          <% }} %>       
+          <% if (news[0]) { %>     
             <hr>
           <div class="columns">
             <div class="column is-10 is-offset-1">
@@ -30,6 +31,10 @@
                 </div>
               </div>
               <hr>
+              <% } else { %>
+                <hr>
+                <h1 class="title">Нету</h1>
+                <% } %>  
               <div class="columns is-multiline">
                 <% news.forEach((el, i) => { %>
                     <% if (i === 1 || i === 2) { %>
