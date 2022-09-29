@@ -36,35 +36,26 @@
                     <h1 class="title has-text-centered">Последние новости</h1>
                     <section class="section">
                         <div class="columns is-centered">
-                            <div class="column is-6">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <figure class="image is-4by3">
-                                            <img class="is-128x128"
-                                                src="<%= news[0].imgUrl %>"
-                                                alt="Image">
-                                        </figure>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <figure class="image is-48x48">
-                                                    <img src="/images/logo-circle.png"
-                                                        alt="Logo">
-                                                </figure>
-                                            </div>
-                                            <div class="media-content">
-                                                <p class="title is-4"><%= news[0].title %></p>
-                                                <p class="subtitle is-6">@<%= news[0].author %></p>
-                                            </div>
+                            <div class="column is-12 is-offset-1">
+                                <div class="columns featured-post is-multiline">
+                                  <div class="column is-12 post">
+                                    <article class="columns featured">
+                                      <div class="column is-7 post-img ">
+                                        <img src="<%= news[0].imgUrl %>" alt="Image">
+                                      </div>
+                                      <div class="column is-5 featured-content va">
+                                        <div>
+                                          <h1 class="title post-title"><%= news[0].title %> </h1>
+                                          <p class="subtitle is-6">@<%= news[0].author %></p>
+                                          <p class="post-excerpt"><%= news[0].description %> </p>
+                                          <br>
+                                          <p>Опубликовано : <%= news[0].date %></p>
+                                          <br>
+                                          <a href="/news/<%= news[0]._id %>" class="button is-info is-outlined">Читать</a>
                                         </div>
-
-                                        <div class="content">
-                                            <%= news[0].description %> 
-                                            <hr>
-                                            <p>Опубликовано : <%= news[0].date %></p>
-                                        </div>
-                                    </div>
+                                      </div>
+                                    </article>
+                                  </div>
                                 </div>
                             </div>
                         </div>
