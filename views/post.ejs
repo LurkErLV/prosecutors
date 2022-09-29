@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+<section class="articles">
+    <div class="column is-8 is-offset-2">
+        <div class="card article">
+            <% if (user) { %>
+                <% if (user.level >= 4) { %>
+            <a class="button" href="/news/<%= post._id %>/edit">Изменить</a>
+            <% }} %> 
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content has-text-centered">
+                        <p class="title article-title"><%= post.title %></p>
+                        <div class="tags has-addons level-item">
+                            <span class="tag is-rounded is-info">@<%= post.author %></span>
+                            <span class="tag is-rounded"><%= post.date %></span>
+                        </div>
+                    </div>
+                </div>
+                    <img class="post-image" src="<%= post.imgUrl %>" alt="Image">
+                <div class="content article-body">
+                    <p class="subtitle"><%= post.description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include('partials/footer') -%>

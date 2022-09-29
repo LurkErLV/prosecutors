@@ -1,107 +1,77 @@
-<%- include('partials/header')  -%>
-<section class="hero is-medium">
-    <div class="hero-body">
-        <div class="container has-text-centered">
+<%- include('partials/header') -%>
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
                 <img id="main-logo" src="/images/logo.png" width="387px" height="auto">
+            </div>
         </div>
-    </div>
-</section>
-<section class="blog-posts">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-10 is-offset-1">
-                <div class="columns featured-post is-multiline">
-                    <div class="column is-12 post">
-                        <article class="columns featured">
-                            <div class="column is-7 post-img ">
-                                <img src="/images/image1.png" alt="Article Image">
-                            </div>
-                            <div class="column is-5 featured-content va">
-                                <div>
-                                    <h3 class="heading post-category">Состав прокуратуры</h3>
-                                    <h1 class="title post-title">Генеральный Прокурор</h1>
-                                    <p class="post-excerpt">Генеральным Прокурором штата является John Rich. <br>
-                                        <hr>
-                                    <a href="https://vk.com/pyankoff_official">Электронная почта</a> <br>
-                                    <span class="discord-contact">Спец. Связь:</span> John Rich#1432
-                                    </p>
-                                    <br>
+    </section>
+    <section class="blog-posts">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="columns featured-post is-multiline">
+                        <div class="column is-12 post">
+                            <article class="columns featured">
+                                <div class="column is-7 post-img ">
+                                    <img src="/images/image1.png" alt="Article Image">
+                                </div>
+                                <div class="column is-5 featured-content va">
+                                    <div>
+                                        <h3 class="heading post-category">Состав прокуратуры</h3>
+                                        <h1 class="title post-title">Генеральный Прокурор</h1>
+                                        <p class="post-excerpt">Генеральным Прокурором штата является John Rich. <br>
+                                            <hr>
+                                            <a href="https://vk.com/pyankoff_official">Электронная почта</a> <br>
+                                            <span class="discord-contact">Спец. Связь:</span> John Rich#1432
+                                        </p>
+                                        <br>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <hr>
+                    <h1 class="title has-text-centered">Последние новости</h1>
+                    <section class="section">
+                        <div class="columns is-centered">
+                            <div class="column is-6">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <figure class="image is-4by3">
+                                            <img class="is-128x128"
+                                                src="<%= news[0].imgUrl %>"
+                                                alt="Image">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-48x48">
+                                                    <img src="/images/logo-circle.png"
+                                                        alt="Logo">
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="title is-4"><%= news[0].title %></p>
+                                                <p class="subtitle is-6">@<%= news[0].author %></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <%= news[0].description %> 
+                                            <hr>
+                                            <p>Опубликовано : <%= news[0].date %></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </article>
-                    </div>
-                </div>
-                <hr>
-                <h1 class="has-text-centered title">Прокуроры недели</h1>
-                <div class="columns is-multiline">
-                    <div class="column post is-6">
-                        <article class="columns is-multiline">
-                            <div class="column is-12 post-img">
-                                <img src="/images/image2.png" alt="Article Image">
-                            </div>
-                            <div class="column is-12 featured-content ">
-                                <h3 class="heading post-category">Округ Los-Santos</h3>
-                                <h1 class="title post-title">John Rich</h1>
-                                <p class="post-excerpt">Спец. Связь: John Rich#1432</p>
-                                <br>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column post is-6">
-                        <article class="columns is-multiline">
-                            <div class="column is-12 post-img">
-                                <img src="/images/image3.png" alt="Article Image">
-                            </div>
-                            <div class="column is-12 featured-content ">
-                                <h3 class="heading post-category">Округ Blaine County</h3>
-                                <h1 class="title post-title">John Rich</h1>
-                                <p class="post-excerpt">Спец. Связь: John Rich#1432</p>
-                                <br>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column post is-4" style="display: none;">
-                        <article class="columns is-multiline">
-                            <div class="column is-12 post-img">
-                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Article Image">
-                            </div>
-                            <div class="column is-12 featured-content ">
-                                <h3 class="heading post-category">Курица</h3>
-                                <h1 class="title post-title">Шок контент</h1>
-                                <p class="post-excerpt">!!!ШОК КОНТЕНТ!!!<br>Лидер BCSD оказывается не лидер а курица!<br>Только не говорите что я это написал :D</p>
-                                <br>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column post is-4" style="display: none;">
-                        <article class="columns is-multiline">
-                            <div class="column is-12 post-img">
-                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Article Image">
-                            </div>
-                            <div class="column is-12 featured-content ">
-                                <h3 class="heading post-category">Деваучки</h3>
-                                <h1 class="title post-title">Посиделки девочек</h1>
-                                <p class="post-excerpt">Тут мы можем наблюдать две особи женского пола, сидяшие на диванчике около Американского флага, мол они крутые.</p>
-                                <br>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="column post is-4" style="display: none;">
-                        <article class="columns is-multiline">
-                            <div class="column is-12 post-img">
-                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Article Image">
-                            </div>
-                            <div class="column is-12 featured-content ">
-                                <h3 class="heading post-category">Category Name</h3>
-                                <h1 class="title post-title">В будущем...</h1>
-                                <p class="post-excerpt">В будущем...</p>
-                                <br>
-                            </div>
-                        </article>
-                    </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
+    </section>
     </div>
-</section>
-<%- include('partials/footer')  -%>
+    </section>
+    <%- include('partials/footer') -%>

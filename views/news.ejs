@@ -1,0 +1,81 @@
+<%- include('partials/header') -%>
+    <section class="blog-posts">
+        <div class="container">
+            <h1 class="title has-text-centered">Новости</h1>
+            <% if (user) { %>
+              <% if (user.level >= 4) { %>  
+            <a class="button is-dark" href="/news/create">Создать</a>  
+            <% }} %>           
+            <hr>
+          <div class="columns">
+            <div class="column is-10 is-offset-1">
+              <div class="columns featured-post is-multiline">
+                <div class="column is-12 post">
+                  <article class="columns featured">
+                    <div class="column is-7 post-img ">
+                      <img src="<%= news[0].imgUrl %>" alt="Image">
+                    </div>
+                    <div class="column is-5 featured-content va">
+                      <div>
+                        <h1 class="title post-title"><%= news[0].title %> </h1>
+                        <p class="subtitle is-6">@<%= news[0].author %></p>
+                        <p class="post-excerpt"><%= news[0].description %> </p>
+                        <br>
+                        <p>Опубликовано : <%= news[0].date %></p>
+                        <br>
+                        <a href="/news/<%= news[0]._id %>" class="button is-info is-outlined">Читать</a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <hr>
+              <div class="columns is-multiline">
+                <% news.forEach((el, i) => { %>
+                    <% if (i === 1 || i === 2) { %>
+                        <div class="column post is-6">
+                            <article class="columns is-multiline">
+                              <div class="column is-12 post-img">
+                                <img src="<%= el.imgUrl %>" alt="Image">
+                              </div>
+                              <div class="column is-12 featured-content ">
+                                <h1 class="title post-title"><%= el.title %></h1>
+                                <p class="subtitle is-6">@<%= el.author %></p>
+                                <% if (el.description.length < 300) { %> 
+                                <p class="post-excerpt"><%= el.description %></p>
+                                <% } else { %>
+                                    <p class="post-excerpt"><%= el.description.substr(0, 300) %>...</p>
+                                <% } %>
+                                <p>Опубликовано : <%= el.date %></p>
+                                <br>
+                                <a href="/news/<%= el._id %>" class="button is-info is-outlined">Читать</a>
+                              </div>
+                            </article>
+                          </div>
+                    <% } else if (i !== 0) { %>
+                        <div class="column post is-4">
+                            <article class="columns is-multiline">
+                              <div class="column is-12 post-img">
+                                <img src="<%= el.imgUrl %>" alt="Image">
+                              </div>
+                              <div class="column is-12 featured-content ">
+                                <h1 class="title post-title"><%= el.title %></h1>
+                                <p class="subtitle is-6">@<%= el.author %></p>
+                                <% if (el.description.length < 300) { %> 
+                                <p class="post-excerpt"><%= el.description %></p>
+                                <% } else { %>
+                                    <p class="post-excerpt"><%= el.description.substr(0, 300) %>...</p>
+                                <% } %>
+                                <p>Опубликовано : <%= el.date %></p>
+                                <br>
+                                <a href="/news/<%= el._id %>" class="button is-info is-outlined">Читать</a>
+                              </div>
+                            </article>
+                          </div>
+                    <% } %> 
+                <% }) %> 
+              </div>
+            </div>
+          </div>
+      </section>
+    <%- include('partials/footer') -%>

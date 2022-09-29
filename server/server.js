@@ -28,6 +28,7 @@ const profileRoute = require('../routes/profile');
 const dashboardRoute = require('../routes/dashboard');
 const prosecutorsRoute = require('../routes/prosecutors');
 const ordersRoute = require('../routes/orders');
+const newsRoute = require('../routes/news');
 const errorRoute = require('../routes/error');
 
 app.use(session({
@@ -56,6 +57,7 @@ app.use('/profile', profileRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/prosecutors', prosecutorsRoute)
 app.use('/orders', ordersRoute);
+app.use('/news', newsRoute);
 app.use('*', errorRoute);
 
 httpServer.listen(8080);

@@ -30,6 +30,37 @@
                     </div>
                 </div>
                 <hr>
+                <h1 class="has-text-centered title">Прокуроры недели</h1>
+                <div class="columns is-multiline">
+                    <div class="column post is-6">
+                        <article class="columns is-multiline">
+                            <div class="column is-12 post-img">
+                                <img src="<%= week[0].imgUrl %>" alt="Image">
+                            </div>
+                            <div class="column is-12 featured-content ">
+                                <h3 class="heading post-category">Округ Los-Santos</h3>
+                                <h1 class="title post-title"><%= week[0].name %> <%= week[0].surname %> </h1>
+                                <p class="post-excerpt"><%= week[0].info %> </p>
+                                <br>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="column post is-6">
+                        <article class="columns is-multiline">
+                            <div class="column is-12 post-img">
+                                <img src="<%= week[1].imgUrl %>" alt="Image">
+                            </div>
+                            <div class="column is-12 featured-content ">
+                                <h3 class="heading post-category">Округ Blaine County</h3>
+                                <h1 class="title post-title"><%= week[1].name %> <%= week[1].surname %> </h1>
+                                <p class="post-excerpt"><%= week[1].info %> </p>
+                                <br>
+                            </div>
+                        </article>
+                    </div>
+                    </div>
+                    <hr>
+            
                 <h1 class="has-text-centered title">Округ Los-Santos</h1>
                 <div class="columns is-multiline">
                     <% ls.forEach((el, i) => { %>

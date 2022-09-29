@@ -1,0 +1,31 @@
+<%- include('partials/header') -%>
+<section class="blog-posts">
+    <div class="container">
+<div class="columns">
+    <form action="/news/<%= post._id %>/edit" method="POST">
+        <div class="column is-12 is-offset-1" id="border">
+            <div class="columns featured-post is-multiline">
+                <div class="column is-6 post">
+                    <article class="columns featured">
+                        <div class="column is-10 post-img ">
+                            <p><b>Image Url:</b> <input required type="text" name="imgUrl" value="<%= post.imgUrl %>"></p>
+                        </div>
+                        <div class="column is-12 featured-content va">
+                            <div>
+                                <h1 class="title post-title">Заголовок: <input required type="text" name="title" value="<%= post.title %>"></h1>
+                                <p class="subtitle is-5">Автор: <input required type="text" name="author" value="<%= post.author %>"></p>
+                                <p class="post-excerpt">Описание: <textarea required type="text" name="description"><%= post.description %></textarea></p>
+                                <br>
+                                <p>Опубликовано : <input required type="date" name="date" value="<%= post.date %>"></p>
+                                <label for="delete">Удалить?</label>
+                                <input type="checkbox" name="delete" id="delete">
+                            </div>
+                            <button class="button" type="submit">Подтвердить</button>
+                        </div>
+                    </article>
+                </div>
+            </form>
+      </div>
+    </div>
+</section>
+<%- include('partials/footer') -%>

@@ -10,12 +10,14 @@ router.get('/', (req, res) => {
         const prosecutorsLS = await db.collection('prosecutors').find({ county: "Los-Santos" }).toArray();
         const prosecutorsBC = await db.collection('prosecutors').find({ county: "Blaine County" }).toArray();
         const genProsecutor = await db.collection('prosecutors').findOne({ county: "Federal" });
+        const weekProsecutor = await db.collection('prosecutors').find({ county: "week" }).toArray();
 
         res.render('prosecutors', {
             user: req.user,
             bc: prosecutorsBC,
             ls: prosecutorsLS,
-            federal: genProsecutor
+            federal: genProsecutor,
+            week: weekProsecutor
         });
     });
 });
@@ -30,12 +32,14 @@ router.get('/edit', (req, res) => {
         const prosecutorsLS = await db.collection('prosecutors').find({ county: "Los-Santos" }).toArray();
         const prosecutorsBC = await db.collection('prosecutors').find({ county: "Blaine County" }).toArray();
         const genProsecutor = await db.collection('prosecutors').findOne({ county: "Federal" });
+        const weekProsecutor = await db.collection('prosecutors').find({ county: "week" }).toArray();
 
         res.render('editProsecutors', {
             user: req.user,
             bc: prosecutorsBC,
             ls: prosecutorsLS,
-            federal: genProsecutor
+            federal: genProsecutor,
+            week: weekProsecutor
         });
     });
 } else {

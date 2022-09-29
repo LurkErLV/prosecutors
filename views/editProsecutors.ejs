@@ -11,9 +11,10 @@
                             <article class="columns featured">
                                 <div class="column is-7 post-img">
                                     <form action="/prosecutors/edit" method="POST">
-                                    <input type="text" name="id" value="<%= federal._id %>" style="display: none;">
-                                    <b>Image url:</b>
-                                    <input class="input-order" type="text" name="imgUrl" value="<%= federal.imgUrl %>">
+                                        <input type="text" name="id" value="<%= federal._id %>" style="display: none;">
+                                        <b>Image url:</b>
+                                        <input class="input-order" type="text" name="imgUrl"
+                                            value="<%= federal.imgUrl %>">
                                 </div>
                                 <div class="column is-5 featured-content va">
                                     <div>
@@ -29,10 +30,59 @@
                                         <button class="button" type="submit">Сохранить</button>
                                         <br>
                                     </div>
-                                </form>
+                                    </form>
                                 </div>
                             </article>
                         </div>
+                    </div>
+                    <hr>
+                    <h1 class="has-text-centered title">Прокуроры недели</h1>
+                    <div class="columns is-multiline">
+                        <div class="column post is-6">
+                            <form action="/prosecutors/edit" method="POST">
+                                <input type="text" name="id" value="<%= week[0]._id %>" style="display: none;">
+                                <article class="columns is-multiline">
+                                    <div class="column is-12 post-img">
+                                        <b>Image url:</b>
+                                        <input class="input-order" type="text" name="imgUrl"
+                                            value="<%= week[0].imgUrl %>">
+                                    </div>
+                                    <div class="column is-12 featured-content ">
+                                        <h3 class="heading post-category">Округ Los-Santos</h3>
+                                        <h1 class="title post-title"><input class="input-order" name="name" type="text"
+                                                value="<%= week[0].name %>"> <input class="input-order" type="text"
+                                                name="surname" value="<%= week[0].surname %>"></h1>
+                                        <p class="post-excerpt"><textarea class="input-order" name="info"
+                                                style="width: 100%; min-height: 150px"><%= week[0].info %></textarea>
+                                        </p>
+                                        <br>
+                                    </div>
+                                    <button class="button" type="submit">Сохранить</button>
+                                </article>
+                            </form>
+                        </div>
+                        <div class="column post is-6">
+                            <form action="/prosecutors/edit" method="POST">
+                                <input type="text" name="id" value="<%= week[1]._id %>" style="display: none;">
+                                <article class="columns is-multiline">
+                                    <div class="column is-12 post-img">
+                                        <b>Image url:</b>
+                                        <input class="input-order" type="text" name="imgUrl"
+                                            value="<%= week[0].imgUrl %>">
+                                    </div>
+                                    <div class="column is-12 featured-content ">
+                                        <h3 class="heading post-category">Округ Blaine County</h3>
+                                        <h1 class="title post-title"><input class="input-order" name="name" type="text"
+                                                value="<%= week[1].name %>"> <input class="input-order" type="text"
+                                                name="surname" value="<%= week[1].surname %>"></h1>
+                                        <p class="post-excerpt"><textarea class="input-order" name="info"
+                                                style="width: 100%; min-height: 150px"><%= week[1].info %></textarea>
+                                        </p>
+                                        <br>
+                                    </div>
+                                    <button class="button" type="submit">Сохранить</button>
+                                </article>
+                            </form>
                     </div>
                     <hr>
                     <h1 class="has-text-centered title">Округ Los-Santos</h1>
@@ -44,13 +94,14 @@
                                     <article class="columns is-multiline">
                                         <div class="column is-12 post-img">
                                             <b>Image url:</b>
-                                            <input class="input-order" type="text" name="imgUrl" value="<%= el.imgUrl %>">
+                                            <input class="input-order" type="text" name="imgUrl"
+                                                value="<%= el.imgUrl %>">
                                         </div>
                                         <div class="column is-12 featured-content ">
                                             <h3 class="heading post-category">Округ Los-Santos</h3>
-                                            <h1 class="title post-title"><input class="input-order" name="name" type="text"
-                                                    value="<%= el.name %>"> <input class="input-order" type="text" name="surname"
-                                                    value="<%= el.surname %>"></h1>
+                                            <h1 class="title post-title"><input class="input-order" name="name"
+                                                    type="text" value="<%= el.name %>"> <input class="input-order"
+                                                    type="text" name="surname" value="<%= el.surname %>"></h1>
                                             <p class="post-excerpt"><textarea class="input-order" name="info"
                                                     style="width: 100%; min-height: 150px"><%= el.info %></textarea></p>
                                             <br>
@@ -72,13 +123,14 @@
                                     <article class="columns is-multiline">
                                         <div class="column is-12 post-img">
                                             <b>Image url:</b>
-                                            <input class="input-order" type="text" name="imgUrl" value="<%= el.imgUrl %>">
+                                            <input class="input-order" type="text" name="imgUrl"
+                                                value="<%= el.imgUrl %>">
                                         </div>
                                         <div class="column is-12 featured-content ">
                                             <h3 class="heading post-category">Округ Los-Santos</h3>
-                                            <h1 class="title post-title"><input class="input-order" name="name" type="text"
-                                                    value="<%= el.name %>"> <input class="input-order" type="text" name="surname"
-                                                    value="<%= el.surname %>"></h1>
+                                            <h1 class="title post-title"><input class="input-order" name="name"
+                                                    type="text" value="<%= el.name %>"> <input class="input-order"
+                                                    type="text" name="surname" value="<%= el.surname %>"></h1>
                                             <p class="post-excerpt"><textarea class="input-order" name="info"
                                                     style="width: 100%; min-height: 150px"><%= el.info %></textarea></p>
                                             <br>
