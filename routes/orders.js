@@ -62,6 +62,7 @@ router.post('/create', bodyParser.urlencoded({ extended: true }), async (req, re
         additional: req.body.additional,
         isDanger: req.body.isDanger,
         imgUrl: req.body.imgUrl,
+        code: req.body.code,
         status: "Модерация"
     }).save();
 } catch (err) {

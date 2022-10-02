@@ -31,7 +31,7 @@ passport.use(new DiscordStrategy({
                 avatar: profile.avatar,
                 phone: "None",
                 level: 0,
-                rank: "Гость",
+                rank: "Гражданский",
                 position: "None"
             });
             const savedUser = await newUser.save();

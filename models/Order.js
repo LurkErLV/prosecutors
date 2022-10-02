@@ -20,6 +20,7 @@ const orderSchema = new Schema({
     additional: { type: String, required: true },
     isDanger: { type: String, required: true },
     imgUrl: { type: String, required: false },
+    code: { type: String, required: true },
     status: { type: String, required: true }
 });
 
