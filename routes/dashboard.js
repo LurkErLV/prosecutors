@@ -17,7 +17,8 @@ const ranks = {
     2: "Дежурный Прокурор",
     3: "Окружной Прокурор",
     4: "Зам. Генерального Прокурора",
-    5: "Генеральный Прокурор"
+    5: "Генеральный Прокурор",
+    6: "Губернатор"
 };
 
 const positions = {
@@ -28,7 +29,7 @@ const positions = {
 };
 
 function checkRank(req, user) {
-    if (req.body.rank > 5 && req.body.rank < 1) {
+    if (req.body.rank > 6 && req.body.rank < 1) {
         return false;
     }
 
