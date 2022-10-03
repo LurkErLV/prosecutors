@@ -87,10 +87,7 @@ router.get('/:orderId', async (req, res) => {
                     console.log(err);
                 }
             });
-            res.render('order', {
-                user: req.user,
-                order: order
-            });
+            res.redirect('/orders');
         } else {
         if (req.user) {
             if (req.user.level >= 4) {

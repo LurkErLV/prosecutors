@@ -11,9 +11,9 @@ router.get('/logout', (req, res) => {
         req.logout((err) => {
             if (err) console.log(err);
         });
-        res.redirect('/');
+        res.redirect(req.get('referer'));
     } else {
-        res.redirect('/');
+        res.redirect(req.get('referer'));
     }
 });
 
